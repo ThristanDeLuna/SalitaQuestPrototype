@@ -72,7 +72,7 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 |
 |	$autoload['libraries'] = array('database', 'email', 'session');
 */
-// 'database' is no longer autoloaded: the SmartStock prototype runs on simulated
+// 'database' is no longer autoloaded: the Salita Quest prototype runs on simulated
 // session data. Models that need MySQL call $this->call->database() themselves.
 $autoload['libraries'] = array();
 

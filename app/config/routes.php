@@ -49,21 +49,6 @@ $router->match('/auth/login', 'AuthController::login', ['GET', 'POST']);
 $router->match('/auth/register', 'AuthController::register', ['GET', 'POST']);
 $router->get('/auth/logout', 'AuthController::logout');
 
-// Root – SmartStock dashboard (prototype, no login required)
+// Salita Quest prototype (no login required)
 $router->get('/', 'SalitaQuestController::index');
 $router->get('/salita', 'SalitaQuestController::index');
-
-// SmartStock corrosion-risk monitoring prototype
-$router->get('/dashboard',  'SmartStockController::dashboard');
-$router->get('/monitoring', 'SmartStockController::monitoring');
-$router->get('/corrosion',  'SmartStockController::corrosion');
-$router->get('/alerts',     'SmartStockController::alerts');
-
-// Product CRUD – protected by 'auth' middleware
-$router->group(['prefix' => '/products', 'middleware' => 'auth'], function ($router) {
-    $router->get('/', 'ProductController::index');
-    $router->match('/create', 'ProductController::create', ['GET', 'POST']);
-    $router->match('/edit/{id}', 'ProductController::edit', ['GET', 'POST']);
-    $router->get('/delete/{id}', 'ProductController::delete');
-});
-
